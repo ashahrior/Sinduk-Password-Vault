@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="recordPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="766.0" style="-fx-background-color: #0f1833;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomePageController">
+   <children>
+      <AnchorPane fx:id="sidePane" prefHeight="480.0" prefWidth="213.0" style="-fx-background-color: #0e111f;">
+         <children>
+            <ImageView fitHeight="149.0" fitWidth="109.0" layoutX="57.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../lock_logo.png" />
+               </image>
+               <effect>
+                  <Bloom />
+               </effect>
+            </ImageView>
+            <Label layoutX="55.0" layoutY="163.0" prefHeight="30.0" prefWidth="103.0" text="sinduk" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="36.0" />
+               </font>
+               <effect>
+                  <Reflection fraction="0.49" topOpacity="0.26" />
+               </effect>
+            </Label>
+            <Label id="accountLabel" fx:id="accountLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="15.0" layoutY="246.0" text="PQR" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="16.0" />
+               </font>
+            </Label>
+            <Label id="accEmailLabel" fx:id="accEmailLabel" contentDisplay="CENTER" layoutX="15.0" layoutY="281.0" text="abc@xyz.com" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="12.0" />
+               </font>
+            </Label>
+            <Label contentDisplay="CENTER" layoutX="14.0" layoutY="336.0" text="Record count" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label id="recordsLabel" fx:id="recordsLabel" contentDisplay="CENTER" layoutX="128.0" layoutY="325.0" text="0" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold" size="34.0" />
+               </font>
+            </Label>
+            <Button id="logoutButton" fx:id="logoutButton" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="415.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: red; -fx-border-color: #eb4034; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Log out" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </AnchorPane>
+      <TextField id="searchText" fx:id="searchText" layoutX="494.0" layoutY="23.0" prefHeight="26.0 " prefWidth="189.0" promptText="Enter website/email" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TableView id="dataTable" fx:id="dataTable" layoutX="224.0" layoutY="71.0" prefHeight="236.0" prefWidth="528.0" stylesheets="@table-stylesheet.css">
+        <columns>
+          <TableColumn fx:id="webNameCol" editable="false" prefWidth="98.0" text="Website Name" />
+          <TableColumn fx:id="webAddCol" editable="false" prefWidth="134.0" text="Website Address" />
+            <TableColumn fx:id="webUserCol" editable="false" prefWidth="149.0" text="Website User ID" />
+            <TableColumn fx:id="webPassCol" editable="false" prefWidth="145.0" text="Website User Password" />
+        </columns>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TableView>
+      <TextField id="webNameText" fx:id="webNameText" layoutX="224.0" layoutY="325.0" prefHeight="26.0" prefWidth="189.0" promptText="Website name" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="325.0" prefHeight="26.0" prefWidth="307.0" promptText="Website address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webUserMailText" fx:id="webUserMailText" layoutX="224.0" layoutY="370.0" prefHeight="26.0" prefWidth="255.0" promptText="Website user email" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webUserPassText" fx:id="webUserPassText" layoutX="509.0" layoutY="370.0" prefHeight="26.0" prefWidth="243.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <Button id="searchButton" fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="683.0"
+              layoutY="19.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="34.0" prefWidth="69.0"
+              style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Search" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0"
+              layoutY="415.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0"
+              style="-fx-background-color: #c73f20; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button id="updateButton" fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0"
+              layoutY="415.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="34.0" prefWidth="69.0"
+              style="-fx-background-color: #272f9c; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Update" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <Button id="saveButton" fx:id="saveButton" alignment="CENTER"  onAction="#saveAction" contentDisplay="CENTER" layoutX="335.0"
+              layoutY="415.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #20c771; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Save" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <PasswordField id="accountPasswordField" fx:id="accPasswordField" layoutX="224.0" layoutY="25.0" prefHeight="26.0" prefWidth="163.0" promptText="Account password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;">
+         <effect>
+            <Glow>
+               <input>
+                  <Bloom />
+               </input>
+            </Glow>
+         </effect></PasswordField>
+      <Button id="verifyButton" fx:id="verifyButton" onAction="#verifyAction" alignment="CENTER"
+              contentDisplay="CENTER" layoutX="386.0"
+              layoutY="21.0" minWidth="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Verify" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow>
+               <input>
+                  <Bloom />
+               </input>
+            </Glow>
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

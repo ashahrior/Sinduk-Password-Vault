@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="253.0" prefWidth="468.0" style="-fx-background-color: #0f1833; -fx-border-radius: 10px;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
+   <children>
+      <AnchorPane layoutY="-1.0" prefHeight="266.0" prefWidth="162.0" style="-fx-background-color: #0e111f;">
+         <children>
+            <Label layoutX="30.0" layoutY="194.0" text="sinduk" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="36.0" />
+               </font>
+               <effect>
+                  <Glow />
+               </effect>
+            </Label>
+            <ImageView fx:id="logo" fitHeight="151.0" fitWidth="96.0" layoutX="33.0" layoutY="30.0" opacity="1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../lock_logo.png" />
+               </image>
+               <effect>
+                  <Bloom />
+               </effect>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <TextField fx:id="name" layoutX="197.0" layoutY="63.0" opacity="0.8" prefHeight="26.0" prefWidth="244.0" promptText="Username/Email" style="-fx-background-color: #1d2a59; -fx-border-color: #959be6; -fx-border-radius: 5px; -fx-opacity: 100%; -fx-text-inner-color: white;" />
+      <PasswordField fx:id="pass" layoutX="197.0" layoutY="124.0" opacity="0.8" prefHeight="26.0" prefWidth="244.0" promptText="Password" style="-fx-background-color: #1d2a59; -fx-border-color: #959be6; -fx-border-radius: 5px; -fx-opacity: 100%; -fx-text-inner-color: white;" />
+      <Button fx:id="signin" layoutX="226.0" layoutY="181.0" mnemonicParsing="false" onAction="#signInAction" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #24ad37;" stylesheets="@stylesheet.css" text="Sign In" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+      <Button fx:id="signup" layoutX="356.0" layoutY="181.0" mnemonicParsing="false" onAction="#signUpAction" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #3300FF;" stylesheets="@stylesheet.css" text="Sign Up" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <DropShadow />
+         </effect>
+      </Button>
+   </children>
+</AnchorPane>

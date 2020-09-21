@@ -1,0 +1,41 @@
+Login
+-----
+1. Provide registered username/email and password
+2. If account found in the database then provide access else deny.
+3. Show a small notification window stating login denial
+
+Signup
+------
+1. Provide necessary information
+2. Show warning push notifications if account information standard not followed
+3. password masking and unmasking option
+4. show small notification window for successful account creation
+5. show small warning window for duplicate registration of same username/email
+
+Database
+--------
+1. Two tables - a. user table   b. web credential table
+2. user table - would have id for primary key
+3. credential table - would have id, account_username as primary key
+
+Remaining
+--------->
+1. add user, password, email icons
+2. add logo at the app bar
+3. retrieve record-count
+4. table row select values
+5. search action
+6. save, update, delete action
+7. data modification password prompt- visible/invisible
+8. logout action
+
+
+links
+=========
+
+https://stackoverflow.com/questions/17014012/how-to-unmask-a-javafx-passwordfield-or-properly-mask-a-textfield
+
+#1 JavaFX UI Design Dashboard Utility - https://www.youtube.com/watch?v=cPF3qGTjYgk
+JavaFX UI Design playlist - https://www.youtube.com/playlist?list=PL383vhYFx-7owa-bxRJixFfdxDF3HnAkt
+JavaFX Dashboard Dark UI [Free Source] - https://www.youtube.com/watch?v=8lR9scOLE7U
+JavaFX Borderless Dashboard Example Using IntelliJ #1 - https://www.youtube.com/watch?v=Xwr9n5-L7Ro
