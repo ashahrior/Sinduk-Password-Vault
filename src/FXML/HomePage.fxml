@@ -73,9 +73,7 @@
       <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="325.0" prefHeight="26.0" prefWidth="307.0" promptText="Website address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TextField id="webUserMailText" fx:id="webUserMailText" layoutX="224.0" layoutY="370.0" prefHeight="26.0" prefWidth="255.0" promptText="Website user email" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TextField id="webUserPassText" fx:id="webUserPassText" layoutX="509.0" layoutY="370.0" prefHeight="26.0" prefWidth="243.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
-      <Button id="searchButton" fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="683.0"
-              layoutY="19.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="34.0" prefWidth="69.0"
-              style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Search" textFill="WHITE">
+      <Button id="searchButton" fx:id="searchButton" alignment="CENTER" contentDisplay="CENTER" layoutX="683.0" layoutY="19.0" mnemonicParsing="false" onAction="#searchAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Search" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -83,9 +81,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="555.0"
-              layoutY="415.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0"
-              style="-fx-background-color: #c73f20; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
+      <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="415.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #c73f20; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -93,9 +89,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button id="updateButton" fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0"
-              layoutY="415.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="34.0" prefWidth="69.0"
-              style="-fx-background-color: #272f9c; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Update" textFill="WHITE">
+      <Button id="updateButton" fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #272f9c; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Update" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -103,8 +97,7 @@
             <Glow />
          </effect>
       </Button>
-      <Button id="saveButton" fx:id="saveButton" alignment="CENTER"  onAction="#saveAction" contentDisplay="CENTER" layoutX="335.0"
-              layoutY="415.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #20c771; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Save" textFill="WHITE">
+      <Button id="saveButton" fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="415.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: green; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Save" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -120,18 +113,18 @@
                </input>
             </Glow>
          </effect></PasswordField>
-      <Button id="verifyButton" fx:id="verifyButton" onAction="#verifyAction" alignment="CENTER"
-              contentDisplay="CENTER" layoutX="386.0"
-              layoutY="21.0" minWidth="19.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Verify" textFill="WHITE">
+      <Button id="verifyButton" fx:id="verifyButton" alignment="CENTER" contentDisplay="CENTER" layoutX="386.0" layoutY="21.0" minWidth="19.0" mnemonicParsing="false" onAction="#verifyAction" prefHeight="34.0" prefWidth="57.0" style="-fx-background-color: #0f1833; -fx-border-color: white; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Verify" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="684.0"
+              layoutY="415.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="34.0" prefWidth="45.0" style="-fx-background-color: teal; -fx-border-color: #1c2547; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Clear" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <effect>
-            <Glow>
-               <input>
-                  <Bloom />
-               </input>
-            </Glow>
+            <Glow />
          </effect>
       </Button>
    </children>

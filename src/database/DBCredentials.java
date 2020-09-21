@@ -1,7 +1,6 @@
 package database;
 
 public class DBCredentials {
-
     protected static String dbhost = "localhost";
     protected static String dbport = "3306";
     protected static String dbuser = "root";

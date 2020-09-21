@@ -10,9 +10,10 @@ import java.util.ArrayList;
 
 
 public class DBTableData {
-    public static ArrayList getTableData(String user) {
 
-        ArrayList <TableDataModel> arrayList = new ArrayList<TableDataModel>();
+    public static ArrayList<TableDataModel> getTableData(String user) {
+
+        ArrayList <TableDataModel> arrayList = new ArrayList<>();
 
         Connection conn = null;
         DBConnectionManager dbmn = new DBConnectionManager();
@@ -23,6 +24,7 @@ public class DBTableData {
         }
         String query = "SELECT web_name, web_address, web_user_email, web_password FROM passbook.web_credentials WHERE username='"+user+"' ;";
         try {
+            assert conn != null;
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {

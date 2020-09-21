@@ -67,6 +67,9 @@ public class HomePageController implements Initializable {
     private Button saveButton;
 
     @FXML
+    public Button clearButton;
+
+    @FXML
     private PasswordField accPasswordField;
 
     @FXML
@@ -89,15 +92,16 @@ public class HomePageController implements Initializable {
 
     private static ObservableList<TableDataModel> observableList = FXCollections.observableArrayList();
 
+    private static String loginPassword="";
+
+
     private void populateTable() {
         //web_name, web_address, web_user_email, web_password;
         webNameCol.setCellValueFactory(new PropertyValueFactory<>("web_name"));
         webAddCol.setCellValueFactory(new PropertyValueFactory<>("web_address"));
         webUserCol.setCellValueFactory(new PropertyValueFactory<>("web_user_email"));
         webPassCol.setCellValueFactory(new PropertyValueFactory<>("web_password"));
-        System.out.println(accountLabel.getText());
         TableDataManipulation tableDataManipulation = new TableDataManipulation(accountLabel.getText());
-
         ArrayList<TableDataModel> arrayList = tableDataManipulation.fetchTableView();
 
         observableList.addAll(arrayList);
@@ -108,72 +112,93 @@ public class HomePageController implements Initializable {
     public void setUserInfo(Accounts account) {
         accountLabel.setText(account.getUsername());
         accEmailLabel.setText(account.getEmail_address());
+        loginPassword = account.getPassword();
         populateTable();
-        return;
     }
 
-    void setVerifPassVisibility(boolean status) {
+    void setVerifyPassVisibility(boolean status) {
         accPasswordField.setVisible(status);
         verifyButton.setVisible(status);
-        return;
     }
 
     void tableRowSelection() {
 
-        dataTable.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                try {
-                    System.out.println(
-                            "website title: "+dataTable.getSelectionModel().getSelectedItem().getWeb_name()
-                    );
-                    System.out.println(
-                            "website address: "+dataTable.getSelectionModel().getSelectedItem().getWeb_address()
-                    );
-                    System.out.println(
-                            "website user: "+dataTable.getSelectionModel().getSelectedItem().getWeb_user_email()
-                    );
-                    System.out.println(
-                            "website password: "+dataTable.getSelectionModel().getSelectedItem().getWeb_password()
-                    );
-                    webNameText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_name());
-                    webAddressText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_address());
-                    webUserMailText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_user_email());
-                    webUserPassText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_password());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        dataTable.setOnMousePressed(event -> {
+            try {
+                webNameText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_name());
+                webAddressText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_address());
+                webUserMailText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_user_email());
+                webUserPassText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_password());
+            } catch (Exception e) {
+                //e.printStackTrace();
+                //System.out.println("No data available");
             }
         });
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        setVerifPassVisibility(false);
+        setVerifyPassVisibility(false);
         tableRowSelection();
     }
 
     @FXML
     public void saveAction(ActionEvent actionEvent) {
 
-        /*PasswordDialog pd = new PasswordDialog();
-        Optional<String> result = pd.showAndWait();
-        result.ifPresent(password -> System.out.println(password));
-        */
-        accPasswordField.setVisible(true);
-        verifyButton.setVisible(true);
+        setVerifyPassVisibility(true);
 
+        TableDataManipulation tableDataManipulation = new TableDataManipulation(accountLabel.getText());
+
+        //String account, String web_name, String web_add, String mail, String pass
+        tableDataManipulation.updateTable(
+                webNameText.getText(),
+                webAddressText.getText(),
+                webUserMailText.getText(),
+                webUserPassText.getText()
+        );
+        System.out.println(tableDataManipulation.getUserId());
     }
 
     public void updateAction(ActionEvent actionEvent) {
+        setVerifyPassVisibility(true);
+
+        TableDataManipulation tableDataManipulation = new TableDataManipulation(accountLabel.getText());
+
+        //String account, String web_name, String web_add, String mail, String pass
+        tableDataManipulation.updateTable(
+                webNameText.getText(),
+                webAddressText.getText(),
+                webUserMailText.getText(),
+                webUserPassText.getText()
+        );
     }
 
     public void deleteAction(ActionEvent actionEvent) {
+        setVerifyPassVisibility(true);
+
+        TableDataManipulation tableDataManipulation = new TableDataManipulation(accountLabel.getText());
+
+        //String account, String web_name, String web_add, String mail, String pass
+        tableDataManipulation.updateTable(
+                webNameText.getText(),
+                webAddressText.getText(),
+                webUserMailText.getText(),
+                webUserPassText.getText()
+        );
     }
 
     public void verifyAction(ActionEvent actionEvent) {
     }
 
     public void searchAction(ActionEvent actionEvent) {
+
+    }
+
+    public void clearAction(ActionEvent actionEvent) {
+        webNameText.clear();
+        webAddressText.clear();
+        webUserMailText.clear();
+        webUserPassText.clear();
     }
 }
