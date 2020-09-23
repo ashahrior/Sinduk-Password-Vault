@@ -1,17 +1,17 @@
 package database;
 
-import account_credentials.Accounts;
+import account_credentials.Account;
 
 import java.sql.*;
 
 
-public class DBAccountLogin {
+public class DBAccountAccessor {
 
-    private static Accounts executeSearch(String query) {
+    private static Account executeSearch(String query) {
         Connection conn = null;
         DBConnectionManager dbmn = new DBConnectionManager();
         String name="", email="", pass="";
-        Accounts accounts = null;
+        Account account = null;
         try {
             conn = dbmn.getConnection();
         } catch (Exception e) {
@@ -22,7 +22,6 @@ public class DBAccountLogin {
             ResultSet rs = stmt.executeQuery(query);
             while (rs.next()) {
                 System.out.println(
-                        rs.getString("id") + "\t" +
                         rs.getString("username") + "\t" +
                         rs.getString("email_address") + "\t" +
                         rs.getString("password")
@@ -30,7 +29,7 @@ public class DBAccountLogin {
                 name = rs.getString("username");
                 email = rs.getString("email_address");
                 pass = rs.getString("password");
-                accounts = new Accounts(name,email,pass);
+                account = new Account(name,email,pass);
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -40,15 +39,15 @@ public class DBAccountLogin {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        return accounts;
+        return account;
     }
 
-    public static Accounts checkByUser(String username) {
+    public static Account checkByUser(String username) {
         String query = "SELECT * FROM passbook.user_table WHERE username='"+username+"' ;";
         return executeSearch(query);
     }
 
-    public static Accounts checkByEmail(String email) {
+    public static Account checkByEmail(String email) {
         String query = "SELECT * FROM passbook.user_table WHERE email_address='"+email+"' ;";
         return executeSearch(query);
     }

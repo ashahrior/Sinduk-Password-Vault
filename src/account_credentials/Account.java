@@ -1,11 +1,11 @@
 package account_credentials;
 
-public class Accounts {
+public class Account {
     private String username;
     private String email_address;
     private String password;
 
-    public Accounts(String username, String email_address, String password) {
+    public Account(String username, String email_address, String password) {
         this.username = username;
         this.email_address = email_address;
         this.password = password;

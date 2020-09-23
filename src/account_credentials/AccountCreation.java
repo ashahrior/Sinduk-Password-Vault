@@ -1,26 +1,26 @@
 package account_credentials;
 
-import database.DBAccountInsertion;
+import database.DBAccountCreator;
 
 public class AccountCreation {
 
     private static boolean validateCredentials(String username, String email_address, String password_1, String password_2) {
-        if(!CredentialValidation.validate_user(username)) {
+        if(!AccountAccessCredentialValidation.validate_user(username)) {
             System.out.println("Invalid username");
             return false;
         }
 
-        if(!CredentialValidation.validate_email(email_address)) {
+        if(!AccountAccessCredentialValidation.validate_email(email_address)) {
             System.out.println("Invalid email");
             return false;
         }
 
-        if(!CredentialValidation.password_matcher(password_1, password_2)) {
+        if(!AccountAccessCredentialValidation.password_matcher(password_1, password_2)) {
             System.out.println("Passwords don't match");
             return false;
         }
 
-        if(!CredentialValidation.validate_password(password_1)) {
+        if(!AccountAccessCredentialValidation.validate_password(password_1)) {
             System.out.println("Invalid password");
             return false;
         }
@@ -29,9 +29,9 @@ public class AccountCreation {
 
     public static boolean createAccount(String username, String email, String password1, String password2) {
         if (validateCredentials(username, email, password1, password2)) {
-            Accounts accounts = new Accounts(username, email, password1);
-            DBAccountInsertion dbinsertion = new DBAccountInsertion(accounts);
-            return dbinsertion.insert_account();
+            Account account = new Account(username, email, password1);
+            DBAccountCreator dbainsertion = new DBAccountCreator(account);
+            return dbainsertion.insert_account();
         }
         return false;
     }

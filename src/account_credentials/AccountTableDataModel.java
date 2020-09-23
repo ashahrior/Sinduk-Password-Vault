@@ -1,13 +1,15 @@
 package account_credentials;
 
-public class TableDataModel {
-    private String web_name, web_address, web_user_email, web_password;
+public class AccountTableDataModel {
+    private String web_name, web_address, web_user_email, web_password, data_id_col;
 
-    public TableDataModel(String web_name, String web_address, String web_user_email, String web_password) {
+    public AccountTableDataModel(String web_name, String web_address, String web_user_email,
+                                 String web_password, String data_id_col) {
         this.web_name = web_name;
         this.web_address = web_address;
         this.web_user_email = web_user_email;
         this.web_password = web_password;
+        this.data_id_col = data_id_col;
     }
 
     public String getWeb_name() { return web_name; }
@@ -38,5 +40,9 @@ public class TableDataModel {
 
     public void setWeb_password(String web_password) {
         this.web_password = web_password;
+    }
+
+    public String getData_id_col() {
+        return data_id_col;
     }
 }

@@ -1,12 +1,12 @@
 package account_credentials;
 
-import database.DBAccountLogin;
+import database.DBAccountAccessor;
 
-public class AccountLogin {
+public class AccountAccess {
 
-    static public Accounts attemptLogin(String user, String password) {
+    static public Account attemptLogin(String user, String password) {
 
-        Accounts account = null;
+        Account account = null;
         boolean valid_entry = false, found=false;
         String original_password = "";
 
@@ -15,15 +15,15 @@ public class AccountLogin {
             return null;
         }
 
-        if(CredentialValidation.validate_user(user)) {
+        if(AccountAccessCredentialValidation.validate_user(user)) {
             System.out.println("username given");
-            account = DBAccountLogin.checkByUser(user);
+            account = DBAccountAccessor.checkByUser(user);
             valid_entry = true;
         }
 
-        if(CredentialValidation.validate_email(user)) {
+        if(AccountAccessCredentialValidation.validate_email(user)) {
             System.out.println("email given");
-            account = DBAccountLogin.checkByEmail(user);
+            account = DBAccountAccessor.checkByEmail(user);
             valid_entry = true;
         }
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import account_credentials.Accounts;
+import account_credentials.Account;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import account_credentials.AccountLogin;
+import account_credentials.AccountAccess;
 
 public class LoginController implements Initializable {
 
@@ -50,15 +50,16 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //primaryStage.setTitle("Sinduk");
-
+        name.setText("ashfaq_123");
+        pass.setText("aShfaq_1");
     }
 
     @FXML
     public void signInAction(javafx.event.ActionEvent actionEvent) {
         String name = getName();
         String password = getPass();
-        Accounts accounts = AccountLogin.attemptLogin(name, password);
-        if(accounts!=null) {
+        Account account = AccountAccess.attemptLogin(name, password);
+        if(account !=null) {
             System.out.println("Login successful.");
             login.getScene().getWindow().hide();
             Parent root = null;
@@ -71,7 +72,7 @@ public class LoginController implements Initializable {
             }
 
             HomePageController homePageController = loader.getController();
-            homePageController.setUserInfo(accounts);
+            homePageController.setUserInfo(account);
             Scene scene = new Scene(root);
             Stage homePage = new Stage();
             homePage.setTitle("Sinduk - Records");

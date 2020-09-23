@@ -1,20 +1,20 @@
 package database;
 
-import account_credentials.Accounts;
+import account_credentials.Account;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class DBAccountInsertion {
+public class DBAccountCreator {
     private final String username;
     private final String email_address;
     private final String password;
 
-    public DBAccountInsertion(Accounts accounts) {
-        this.username = accounts.getUsername();
-        this.email_address = accounts.getEmail_address();
-        this.password = accounts.getPassword();
+    public DBAccountCreator(Account account) {
+        this.username = account.getUsername();
+        this.email_address = account.getEmail_address();
+        this.password = account.getPassword();
     }
 
     public boolean insert_account() {
