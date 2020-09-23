@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="recordPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="763.0" style="-fx-background-color: #0f1833;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomePageController">
+<AnchorPane fx:id="recordPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="763.0" style="-fx-background-color: #0f1833;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HomePageController">
    <children>
       <AnchorPane fx:id="sidePane" prefHeight="480.0" prefWidth="213.0" style="-fx-background-color: #0e111f;">
          <children>
@@ -47,7 +47,7 @@
                   <Font name="Arial Bold" size="34.0" />
                </font>
             </Label>
-            <Button id="logoutButton" fx:id="logoutButton" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="415.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: red; -fx-border-color: #eb4034; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Log out" textFill="WHITE">
+            <Button id="logoutButton" fx:id="logoutButton" alignment="CENTER" contentDisplay="CENTER" layoutX="68.0" layoutY="420.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="79.0" style="-fx-background-color: red; -fx-border-color: #eb4034; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Log out" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -70,12 +70,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <TextField id="webNameText" fx:id="webNameText" layoutX="224.0" layoutY="325.0" prefHeight="26.0" prefWidth="189.0" promptText="Website name" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
-      <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="325.0" prefHeight="26.0" prefWidth="307.0" promptText="Website address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webNameText" fx:id="webNameText" layoutX="224.0" layoutY="330.0" prefHeight="26.0" prefWidth="189.0" promptText="Website name" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="330.0" prefHeight="26.0" prefWidth="307.0" promptText="Website address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TextField id="webUserMailText" fx:id="webUserMailText" layoutX="224.0" layoutY="370.0" prefHeight="26.0" prefWidth="255.0" promptText="Website user email" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TextField id="webUserPassText" fx:id="webUserPassText" layoutX="509.0" layoutY="370.0" onKeyTyped="#passTextTypeAction" prefHeight="26.0" prefWidth="183.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <PasswordField id="webUserPassField" fx:id="webUserPassField" layoutX="509.0" layoutY="370.0" onKeyTyped="#passFieldTypeAction" prefHeight="26.0" prefWidth="183.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
-      <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="415.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #c73f20; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
+      <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #c73f20; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -87,7 +87,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button id="updateButton" fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #272f9c; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Update" textFill="WHITE">
+      <Button id="updateButton" fx:id="updateButton" alignment="CENTER" contentDisplay="CENTER" layoutX="400.0" layoutY="420.0" mnemonicParsing="false" onAction="#updateAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #272f9c; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Update" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -99,7 +99,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button id="saveButton" fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="415.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: green; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Add" textFill="WHITE">
+      <Button id="saveButton" fx:id="saveButton" alignment="CENTER" contentDisplay="CENTER" layoutX="270.0" layoutY="420.0" mnemonicParsing="false" onAction="#saveAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: green; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Add" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -111,7 +111,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="684.0" layoutY="415.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="34.0" prefWidth="45.0" style="-fx-background-color: teal; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Clear" textFill="WHITE">
+      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="684.0" layoutY="420.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="34.0" prefWidth="45.0" style="-fx-background-color: teal; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Clear" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
