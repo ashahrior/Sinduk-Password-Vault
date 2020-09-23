@@ -35,6 +35,7 @@ public class PasswordDialog extends Dialog<String> {
         getDialogPane().setStyle("-fx-background-color: #0f1833; -fx-text-inner-color: white;");
         getDialogPane().setContent(hBox);
 
+
         Platform.runLater(passwordField::requestFocus);
 
         setResultConverter(dialogButton -> {

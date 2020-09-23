@@ -11,6 +11,9 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
@@ -37,6 +40,9 @@ public class HomePageController implements Initializable {
     private Label recordsLabel;
 
     @FXML
+    private Label searchCountLabel;
+
+    @FXML
     private Button logoutButton;
 
     @FXML
@@ -58,9 +64,6 @@ public class HomePageController implements Initializable {
     private TextField dataIDText;
 
     @FXML
-    private Button searchButton;
-
-    @FXML
     private Button deleteButton;
 
     @FXML
@@ -70,10 +73,13 @@ public class HomePageController implements Initializable {
     private Button saveButton;
 
     @FXML
-    public Button clearButton;
+    private Button clearButton;
 
     @FXML
-    private PasswordField accPasswordField;
+    private Button showPassButton;
+
+    @FXML
+    private PasswordField webUserPassField;
 
     @FXML
     private Button verifyButton;
@@ -99,37 +105,51 @@ public class HomePageController implements Initializable {
 
     private static String loginPassword="";
 
-    private boolean passwordVerified = false;
 
-
-    private void populateTable() {
+    private void populateTable(boolean status) {
         //web_name, web_address, web_user_email, web_password, id;
         webNameCol.setCellValueFactory(new PropertyValueFactory<>("web_name"));
         webAddCol.setCellValueFactory(new PropertyValueFactory<>("web_address"));
         webUserCol.setCellValueFactory(new PropertyValueFactory<>("web_user_email"));
         webPassCol.setCellValueFactory(new PropertyValueFactory<>("web_password"));
         dataIDCol.setCellValueFactory(new PropertyValueFactory<>("data_id_col"));
+
         AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
-        ArrayList<AccountTableDataModel> arrayList = accountTableDataManager.fetchTableView();
+
+        ArrayList<AccountTableDataModel> arrayList;
+        if(status) arrayList = accountTableDataManager.fetchTableView();
+        else {
+            arrayList = accountTableDataManager.searchTable(searchText.getText());
+            searchCountLabel.setText("Search results found: "+Integer.toString(arrayList.size()));
+            searchCountLabel.setVisible(true);
+        }
 
         ObservableList<AccountTableDataModel> observableList = FXCollections.observableArrayList();
         observableList.addAll(arrayList);
 
         dataTable.setItems(observableList);
+        setRecordsLabel();
     }
+
 
     private void setRecordsLabel() {
         AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
         recordsLabel.setText(accountTableDataManager.getRecordCount());
     }
 
+
     private void clearAll() {
         webNameText.clear();
         webAddressText.clear();
         webUserMailText.clear();
         webUserPassText.clear();
+        webUserPassField.clear();
         //setVerifyPassVisibility(false);
+        searchText.clear();
+        searchCountLabel.setVisible(false);
+        populateTable(true);
     }
+
 
     private boolean hasEmptyField() {
 
@@ -139,11 +159,14 @@ public class HomePageController implements Initializable {
             return false;
         if(webUserMailText.getText().length()==0)
             return false;
+        if(webUserPassField.getText().length()==0)
+            return false;
         if(webUserPassText.getText().length()==0)
             return false;
 
         return true;
     }
+
 
     private boolean verifyPass() {
         /*TextInputDialog dialog = new TextInputDialog("Account password");
@@ -175,18 +198,15 @@ public class HomePageController implements Initializable {
         return false;
     }
 
+
     public void setUserInfo(Account account) {
         accountLabel.setText(account.getUsername());
         accEmailLabel.setText(account.getEmail_address());
         loginPassword = account.getPassword();
-        populateTable();
+        populateTable(true);
         setRecordsLabel();
     }
 
-    private void setVerifyPassVisibility(boolean status) {
-        accPasswordField.setVisible(status);
-        verifyButton.setVisible(status);
-    }
 
     private void tableRowSelection() {
 
@@ -196,6 +216,7 @@ public class HomePageController implements Initializable {
                 webAddressText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_address());
                 webUserMailText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_user_email());
                 webUserPassText.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_password());
+                webUserPassField.setText(dataTable.getSelectionModel().getSelectedItem().getWeb_password());
                 dataIDText.setText(dataTable.getSelectionModel().getSelectedItem().getData_id_col());
             } catch (Exception e) {
                 //e.printStackTrace();
@@ -204,21 +225,22 @@ public class HomePageController implements Initializable {
         });
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //setVerifyPassVisibility(false);
+        searchCountLabel.setVisible(false);
         tableRowSelection();
     }
 
+
     @FXML
-    void saveAction(ActionEvent actionEvent) {
+    private void saveAction(ActionEvent actionEvent) {
 
         if(!hasEmptyField()) {
             System.out.println("No field can be empty");
             return;
         }
-
-        //setVerifyPassVisibility(true);
 
         if(verifyPass()) {
             AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
@@ -232,7 +254,7 @@ public class HomePageController implements Initializable {
             );
             if(status) {
                 System.out.println("Saved successfully");
-                populateTable();
+                populateTable(true);
                 clearAll();
             }
             else System.out.println("Saving failed");
@@ -240,67 +262,104 @@ public class HomePageController implements Initializable {
         }
     }
 
+
     @FXML
     void updateAction(ActionEvent actionEvent) {
-        //setVerifyPassVisibility(true);
 
-        AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
+        if(!hasEmptyField()) {
+            System.out.println("No field can be empty");
+            return;
+        }
 
-        //String account, String web_name, String web_add, String mail, String pass
-        accountTableDataManager.updateTable(
-                webNameText.getText(),
-                webAddressText.getText(),
-                webUserMailText.getText(),
-                webUserPassText.getText(),
-                dataIDText.getText()
-        );
+       if(verifyPass()) {
+           AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
+
+           //String account, String web_name, String web_add, String mail, String pass
+           boolean status = accountTableDataManager.updateTable(
+                   webNameText.getText(),
+                   webAddressText.getText(),
+                   webUserMailText.getText(),
+                   webUserPassText.getText(),
+                   dataIDText.getText()
+           );
+           if(status) {
+               System.out.println("Updated successfully");
+               populateTable(true);
+               clearAll();
+           }
+           else System.out.println("Updating failed");
+       }
     }
+
 
     @FXML
     void deleteAction(ActionEvent actionEvent) {
-        //setVerifyPassVisibility(true);
 
-        AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
-
-        //String account, String web_name, String web_add, String mail, String pass
-        accountTableDataManager.deleteFromTable(
-                webNameText.getText(),
-                webAddressText.getText(),
-                webUserMailText.getText(),
-                webUserPassText.getText(),
-                dataIDText.getText()
-        );
-    }
-
-    @FXML
-    boolean verifyAction(ActionEvent actionEvent) {
-        if(accPasswordField.getText().equals(loginPassword)) {
-            passwordVerified = true;
-            return passwordVerified;
+        if(!hasEmptyField()) {
+            System.out.println("No field can be empty");
+            return;
         }
-        accPasswordField.setEditable(false);
-        accPasswordField.setText("Incorrect password!");
-        try {
-            TimeUnit.SECONDS.sleep(1);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+
+        if(verifyPass()) {
+            AccountTableDataManager accountTableDataManager = new AccountTableDataManager(accountLabel.getText());
+
+            //String account, String web_name, String web_add, String mail, String pass
+            boolean status = accountTableDataManager.deleteFromTable(dataIDText.getText());
+            if(status) {
+                System.out.println("Deleted successfully");
+                populateTable(true);
+                clearAll();
+            }
+            else System.out.println("Deletion failed");
         }
-        accPasswordField.clear();
-        accPasswordField.setEditable(true);
-        return passwordVerified;
     }
 
-    @FXML
-    void searchAction(ActionEvent actionEvent) {
-
-    }
 
     @FXML
     void clearAction(ActionEvent actionEvent) {
         clearAll();
     }
 
+
     @FXML
     void showPassAction(ActionEvent actionEvent) {
+        if(!webUserPassField.getText().isEmpty() && showPassButton.getText().equals("Show") && verifyPass()) {
+            webUserPassField.setVisible(false);
+            webUserPassText.setText(webUserPassField.getText());
+            showPassButton.setText("Hide");
+        }
+        else if(showPassButton.getText().equals("Hide")) {
+            webUserPassField.setVisible(true);
+            showPassButton.setText("Show");
+        }
     }
+
+
+    @FXML
+    void typedSearchAction(KeyEvent keyEvent) {
+        populateTable(false);
+    }
+
+
+    @FXML
+    void searchInputSense(InputMethodEvent inputMethodEvent) {
+        if(searchText.equals("")) {
+            searchCountLabel.setVisible(false);
+        }
+    }
+
+
+    @FXML
+    void passTextTypeAction(KeyEvent keyEvent) {
+        webUserPassField.setText(webUserPassText.getText());
+        //System.out.println(webUserPassField.getText());
+    }
+
+
+    @FXML
+    public void passFieldTypeAction(KeyEvent keyEvent) {
+        webUserPassText.setText(webUserPassField.getText());
+        //System.out.println(webUserPassText.getText());
+    }
+
 }

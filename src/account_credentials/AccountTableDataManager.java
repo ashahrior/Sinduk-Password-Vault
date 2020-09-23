@@ -22,23 +22,25 @@ public class AccountTableDataManager {
         return arrayList;
     }
 
-    public boolean updateTable(String web_name, String web_add, String mail, String pass, String entryId) {
-
-        return true;
-    }
-
     public boolean saveToTable(String web_name, String web_add, String mail, String pass) {
         boolean status = DBTableDataManager.insertRow(userId, web_name, web_add, mail, pass);
         return status;
     }
 
-    public boolean deleteFromTable(String web_name, String web_add, String mail, String pass, String entryId) {
-
-        return true;
+    public boolean updateTable(String web_name, String web_add, String mail, String pass, String entryId) {
+        boolean status = DBTableDataManager.updateRow(userId,web_name,web_add,mail,pass,entryId);
+        return status;
     }
 
-    public void searchTable() {
+    public boolean deleteFromTable(String entryId) {
+        boolean status = DBTableDataManager.deleteRow(entryId);
+        return status;
+    }
 
+    public ArrayList<AccountTableDataModel> searchTable(String searchKey) {
+        ArrayList<AccountTableDataModel> arrayList;
+        arrayList = DBTableDataManager.getSearchData(userId, searchKey);
+        return arrayList;
     }
 
     public String getRecordCount() {
