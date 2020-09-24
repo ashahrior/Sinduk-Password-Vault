@@ -19,6 +19,7 @@ public class DBTableDataManager {
         return conn;
     }
 
+
     public static ArrayList<AccountTableDataModel> getAllTableData(String user) {
 
         ArrayList <AccountTableDataModel> arrayList = new ArrayList<>();
@@ -55,6 +56,7 @@ public class DBTableDataManager {
         return arrayList;
     }
 
+
     public static String getRowCount(String user) {
 
         Connection conn = getConnection();
@@ -70,6 +72,7 @@ public class DBTableDataManager {
         }
         return "0";
     }
+
 
     public static boolean insertRow(String user, String web_name, String web_add, String mail, String pass) {
         Connection conn = getConnection();
@@ -89,39 +92,47 @@ public class DBTableDataManager {
         return true;
     }
 
-    public static boolean updateRow(String user, String web_name, String web_add, String mail, String pass, String entryId) {
-        Connection conn = getConnection();
-        //int id = Integer.parseInt(entryId);
-        String query = "update passbook.web_credentials set username='"+user+"',  web_name='"+web_name+"', " +
-                "web_address='"+web_add+"',\n" +
-                " web_user_email='"+mail+"', web_password='"+pass+"' where id="+entryId+";";
-        try{
-            assert conn != null;
-            //Statement stmt = conn.createStatement();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-            preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
 
+    public static boolean updateRow(String user, String web_name, String web_add, String mail, String pass, String entryId) {
+        if(!entryId.equals("")) {
+            Connection conn = getConnection();
+            //int id = Integer.parseInt(entryId);
+            String query = "update passbook.web_credentials set username='"+user+"',  web_name='"+web_name+"', " +
+                    "web_address='"+web_add+"',\n" +
+                    " web_user_email='"+mail+"', web_password='"+pass+"' where id="+entryId+";";
+            try{
+                assert conn != null;
+                //Statement stmt = conn.createStatement();
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+        return false;
     }
+
 
     public static boolean deleteRow(String entryId) {
-        Connection conn = getConnection();
-        String query = "delete from passbook.web_credentials where id="+entryId+";";
-        try{
-            assert conn != null;
-            //Statement stmt = conn.createStatement();
-            PreparedStatement preparedStatement = conn.prepareStatement(query);
-            preparedStatement.executeUpdate();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+        if(!entryId.equals("")) {
+            Connection conn = getConnection();
+            String query = "delete from passbook.web_credentials where id="+entryId+";";
+            try{
+                assert conn != null;
+                //Statement stmt = conn.createStatement();
+                PreparedStatement preparedStatement = conn.prepareStatement(query);
+                preparedStatement.executeUpdate();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
         }
-        return true;
+        return false;
     }
+
 
     public static ArrayList<AccountTableDataModel> getSearchData(String user, String searchKey) {
 

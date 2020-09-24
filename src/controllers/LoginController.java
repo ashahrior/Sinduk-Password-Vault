@@ -50,8 +50,8 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //primaryStage.setTitle("Sinduk");
-        name.setText("ashfaq_123");
-        pass.setText("aShfaq_1");
+        name.setText("john_doe");
+        pass.setText("JohnDoe#69");
     }
 
     @FXML

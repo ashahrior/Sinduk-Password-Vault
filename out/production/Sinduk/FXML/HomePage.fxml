@@ -57,12 +57,12 @@
             </Button>
          </children>
       </AnchorPane>
-      <TextField id="searchText" fx:id="searchText" layoutX="560.0" layoutY="24.0" onInputMethodTextChanged="#searchInputSense" onKeyTyped="#typedSearchAction" prefHeight="26.0 " prefWidth="189.0" promptText="Website/email address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="searchText" fx:id="searchText" layoutX="494.0" layoutY="24.0" onInputMethodTextChanged="#searchInputSense" onKeyTyped="#typedSearchAction" prefHeight="26.0 " prefWidth="255.0" promptText="Search by title/URL/mail" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TableView id="dataTable" fx:id="dataTable" layoutX="224.0" layoutY="71.0" prefHeight="236.0" prefWidth="528.0" style="-fx-border-radius: 10px; -fx-background-color: black;" stylesheets="@table-stylesheet.css">
         <columns>
-          <TableColumn fx:id="webNameCol" editable="false" prefWidth="165.0" text="Website Name" />
-          <TableColumn fx:id="webAddCol" editable="false" prefWidth="185.0" text="Website Address" />
-            <TableColumn fx:id="webUserCol" editable="false" prefWidth="176.0" text="Website User ID" />
+          <TableColumn fx:id="webNameCol" editable="false" prefWidth="165.0" text="Title" />
+          <TableColumn fx:id="webAddCol" editable="false" prefWidth="185.0" text="URL" />
+            <TableColumn fx:id="webUserCol" editable="false" prefWidth="176.0" text="User" />
             <TableColumn fx:id="webPassCol" editable="false" minWidth="0.0" prefWidth="0.0" text="Website User Password" visible="false" />
             <TableColumn fx:id="dataIDCol" editable="false" prefWidth="98.0" text="DataID" visible="false" />
         </columns>
@@ -70,9 +70,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </TableView>
-      <TextField id="webNameText" fx:id="webNameText" layoutX="224.0" layoutY="330.0" prefHeight="26.0" prefWidth="189.0" promptText="Website name" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
-      <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="330.0" prefHeight="26.0" prefWidth="307.0" promptText="Website address" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
-      <TextField id="webUserMailText" fx:id="webUserMailText" layoutX="224.0" layoutY="370.0" prefHeight="26.0" prefWidth="255.0" promptText="Website user email" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webNameText" fx:id="webNameText" layoutX="224.0" layoutY="330.0" prefHeight="26.0" prefWidth="189.0" promptText="Website title" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webAddressText" fx:id="webAddressText" layoutX="445.0" layoutY="330.0" prefHeight="26.0" prefWidth="307.0" promptText="URL" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
+      <TextField id="webUserMailText" fx:id="webUserMailText" layoutX="224.0" layoutY="370.0" prefHeight="26.0" prefWidth="255.0" promptText="Website user ID" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <TextField id="webUserPassText" fx:id="webUserPassText" layoutX="509.0" layoutY="370.0" onKeyTyped="#passTextTypeAction" prefHeight="26.0" prefWidth="183.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <PasswordField id="webUserPassField" fx:id="webUserPassField" layoutX="509.0" layoutY="370.0" onKeyTyped="#passFieldTypeAction" prefHeight="26.0" prefWidth="183.0" promptText="Website user password" style="-fx-background-color: #1d2a59; -fx-text-inner-color: white;" />
       <Button id="deleteButton" fx:id="deleteButton" alignment="CENTER" contentDisplay="CENTER" layoutX="530.0" layoutY="420.0" mnemonicParsing="false" onAction="#deleteAction" prefHeight="34.0" prefWidth="69.0" style="-fx-background-color: #c73f20; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Delete" textFill="WHITE">
@@ -111,7 +111,7 @@
             </DropShadow>
          </effect>
       </Button>
-      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="684.0" layoutY="420.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="34.0" prefWidth="45.0" style="-fx-background-color: teal; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Clear" textFill="WHITE">
+      <Button id="clearButton" fx:id="clearButton" alignment="CENTER" contentDisplay="CENTER" layoutX="671.0" layoutY="425.0" mnemonicParsing="false" onAction="#clearAction" prefHeight="26.0" prefWidth="45.0" style="-fx-background-color: teal; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-text-inner-color: white;" text="Clear" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -132,6 +132,6 @@
             <Glow />
          </effect>
       </Button>
-      <Label fx:id="searchCountLabel" layoutX="380.0" layoutY="29.0" style="-fx-text-fill: #87dad3;" text="Label" textFill="#87dad3" visible="true" />
+      <Label fx:id="searchCountLabel" layoutX="300.0" layoutY="29.0" style="-fx-text-fill: #87dad3;" text="Label" textFill="#87dad3" />
    </children>
 </AnchorPane>
