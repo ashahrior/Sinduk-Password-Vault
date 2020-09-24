@@ -6,32 +6,40 @@
 ## Features List
 
 ### SignIN
-<img src = "https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png"> 
+<img src = "https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png" width=50% height=50%>
+
 * Only the users having accounts registered within the user-database would be able to gain access inside the application
-* Users can login the application using their username/email and password that they provided during signup.
+* Users can login the application using their **username/email** and **password** that they provided during **signup**.
 * Multiple user accounts can login to the same application each having their own individual records storage.
 * Empty fields will not be granted permission.
 
 ### SignUP
-<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png">
-* To complete registration one must provide username, email address, password.
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png" width=50% height=50%>
+
+* To complete registration one must provide **username**, **email address**, **password**.
 * Each user account will be unique. Already taken usernames, emails will not be allowed for re-registration.
 * Certain format standards for username, email, password are to be maintained while providing user credentials during registration.
 * Invalid credentials will be given warning.
 * Empty fields will not be granted permission.
 
 ### Records
-<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png">
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png" width=50% height=50%>
+
 * The records manager page embodies the following dynamic features-
 	* Logged in users primary credentials set automatically
 	* Count of existing records for the active user for the time
-	* Logout option
+	* **Logout** option
 	* View of stored records in tabular format
-	* CRUD operations integrated with ADD, UPDATE, DELETE button
+	* CRUD operations integrated with **ADD**, **UPDATE**, **DELETE** button
 	* Dynamically typed search results displayed in table along with the count of similar results found
-	* Password visibility controling button
-	* Clear button to reset all fields
+	* Password visibility controling **Show/Hide** button
+	* **Clear** button to reset all fields
 	* Mouseclick row selection on table row automatically fills the editable information fields underneath the table 
+
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home.png" width=50% height=50%>
+
+* Any kind of modification through **ADD**, **UPDATE**, **DELETE** button and password visibility operation **Show** button will require account-holders password verification.
+* Empty fields will not make any effect.
 
 
 ## Techs in Action
@@ -43,3 +51,16 @@
   <li><a href="https://www.mysql.com/">MySQL</a></li>
 </ul>
 
+
+## Work in Progress
+* Adding data encryption-decryption
+* Polishing the UI for refined look
+* Adding warning alerts
+* Onscreen guidance captions upon mouse hover
+
+
+## Future Plan
+* Automatically generate unique random keys for data encryption-decryption for each account holder
+* Generating EXCEL/CSV files for records in encrypted format
+* EXCEL/CSV file uploading feature with specified format
+* Decrypting updated EXCEL, CSV file records via provided keys 
