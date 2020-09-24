@@ -6,14 +6,14 @@
 ## Features List
 
 ### SignIN
-![image] (https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png)
+<img src = "https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png"> 
 * Only the users having accounts registered within the user-database would be able to gain access inside the application
 * Users can login the application using their username/email and password that they provided during signup.
 * Multiple user accounts can login to the same application each having their own individual records storage.
 * Empty fields will not be granted permission.
 
 ### SignUP
-![image] (https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png)
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png">
 * To complete registration one must provide username, email address, password.
 * Each user account will be unique. Already taken usernames, emails will not be allowed for re-registration.
 * Certain format standards for username, email, password are to be maintained while providing user credentials during registration.
@@ -21,7 +21,7 @@
 * Empty fields will not be granted permission.
 
 ### Records
-![image] (https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png)
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png">
 * The records manager page embodies the following dynamic features-
 	* Logged in users primary credentials set automatically
 	* Count of existing records for the active user for the time
