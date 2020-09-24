@@ -6,7 +6,7 @@
 ## Features List
 
 ### SignIN
-<img src = "https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png" width=50% height=50%>
+<img src = "https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-login.png">
 
 * Only the users having accounts registered within the user-database would be able to gain access inside the application
 * Users can login the application using their **username/email** and **password** that they provided during **signup**.
@@ -14,7 +14,7 @@
 * Empty fields will not be granted permission.
 
 ### SignUP
-<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png" width=50% height=50%>
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-signup.png">
 
 * To complete registration one must provide **username**, **email address**, **password**.
 * Each user account will be unique. Already taken usernames, emails will not be allowed for re-registration.
@@ -23,7 +23,7 @@
 * Empty fields will not be granted permission.
 
 ### Records
-<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png" width=50% height=50%>
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home3.png" >
 
 * The records manager page embodies the following dynamic features-
 	* Logged in users primary credentials set automatically
@@ -36,7 +36,7 @@
 	* **Clear** button to reset all fields
 	* Mouseclick row selection on table row automatically fills the editable information fields underneath the table 
 
-<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home.png" width=50% height=50%>
+<img src="https://github.com/ashahrior/Sinduk-Password-Vault/blob/master/screenshots/sinduk-home.png" >
 
 * Any kind of modification through **ADD**, **UPDATE**, **DELETE** button and password visibility operation **Show** button will require account-holders password verification.
 * Empty fields will not make any effect.
