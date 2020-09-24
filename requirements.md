@@ -22,7 +22,7 @@
    
    * web_credentials creation-
    ```sql
-   create table passbook.web_credentials (
+   create table IF NOT EXISTS passbook.web_credentials (
    id int not null auto_increment,
    username varchar(25) not null,
    web_name varchar(25) not null,
